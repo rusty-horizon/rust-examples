@@ -10,15 +10,21 @@ ROOTDIR ?= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 include $(DEVKITPRO)/libnx/switch_rules
 
-# Modded devKitPro's Makefile for Rust/cargo/xargo support!
+# Modded devkitPro's Makefile for Rust/cargo/xargo support!
+
 # --------------------------------------------------------------------------------------
 
+# The rest of customizable assets (name, authors, version...) is on the TOML file(s).
+
+# Toolchain, should stay as aarch64-none-elf
 TOOLCHAIN := aarch64-none-elf
-BUILD := target
+
+# Mode: debug/release
 MODE := release
 
 # --------------------------------------------------------------------------------------
 
+BUILD := target
 OUTPUT := $(CURDIR)/$(BUILD)/$(TOOLCHAIN)/$(MODE)/
 
 ifneq ($(BUILD),$(notdir $(CURDIR)))

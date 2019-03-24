@@ -10,7 +10,7 @@ default-features = false
 features = ["align", "rustc-dep-of-std"]
 
 [dependencies.std]
-git = "https://github.com/rusty-horizon/rusty-horizon-std"
+git = "https://github.com/rusty-horizon/horizon-nx-std"
 branch = "switch"
 default-features = false
 features = [

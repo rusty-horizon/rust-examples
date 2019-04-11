@@ -68,7 +68,6 @@ clean:
 	@echo clean ...
 	@cargo clean
 	@xargo clean
-	@rm -fr $(OUTPUT).pfs0 $(OUTPUT).nso $(OUTPUT).nro $(OUTPUT).nacp $(OUTPUT).elf
 
 
 #---------------------------------------------------------------------------------

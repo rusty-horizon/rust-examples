@@ -1,5 +1,5 @@
 [package]
-name = "hello-world"
+name = "hello_world"
 version = "0.0.1"
 authors = ["XorTroll"]
 
@@ -24,6 +24,6 @@ opt-level = 0
 [dependencies.libc]
 version = "0.2.48"
 
-[dependencies.libnx]
+[dependencies.nx]
 git = "https://github.com/rusty-horizon/libnx"
 branch = "master"

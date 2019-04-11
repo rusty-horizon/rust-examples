@@ -1,15 +1,23 @@
-extern crate libnx;
+extern crate nx;
+
+use nx::{hid,console};
 
 fn main()
-{
-    unsafe
-    {
-        libnx::console::initialize();
+{	
+	unsafe {
+        console::init();
+		
         println!("Hello world!");
+		println!("Press PLUS to exit application.");
         loop
         {
-            libnx::console::flush();
+			let k_down = hid::input_down(hid::Controller::Handheld);
+			if k_down == 1024 as u64{
+				break;
+			}
+
+            console::flush();
         }
-        libnx::console::exit();
-    }
+		console::exit();
+	}
 }

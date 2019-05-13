@@ -3,27 +3,6 @@ name = "hello_world"
 version = "0.0.1"
 authors = ["XorTroll"]
 
-[profile.dev]
-panic = "unwind"
-lto = true
-debug = false
-opt-level = 2
-
-[profile.test]
-panic = "unwind"
-lto = true
-debug = true
-opt-level = 0
-
-[profile.release]
-panic = "unwind"
-lto = true
-debug = true
-opt-level = 0
-
-[dependencies.libc]
-version = "0.2.48"
-
 [dependencies.nx]
 git = "https://github.com/rusty-horizon/libnx"
 branch = "master"

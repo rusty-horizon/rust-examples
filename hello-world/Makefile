@@ -17,7 +17,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 # The rest of customizable assets (name, authors, version...) is on the TOML file(s).
 
 # Toolchain, should stay as aarch64-none-elf
-TOOLCHAIN := aarch64-none-elf
+TOOLCHAIN := aarch64-horizon-elf
 
 # Mode: debug/release
 MODE := release

@@ -1,23 +1,15 @@
 extern crate nx;
 
-use nx::{hid,console};
+use nx::{console, twili};
 
-fn main()
-{	
-	unsafe {
-        console::init();
-		
-        println!("Hello world!");
-		println!("Press PLUS to exit application.");
-        loop
-        {
-			let k_down = hid::input_down(hid::Controller::Handheld);
-			if k_down == 1024 as u64{
-				break;
-			}
+fn main() {
+    let console = console::Handle::new().unwrap();
 
-            console::flush();
-        }
-		console::exit();
-	}
+    let _twili = twili::Handle::new();
+
+    println!("Hello world!");
+
+    console.flush();
+
+    std::thread::sleep(std::time::Duration::from_millis(5000));
 }

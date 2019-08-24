@@ -1,0 +1,14 @@
+[package]
+name = "sdl2_sys_simple"
+version = "0.0.1"
+authors = ["XorTroll"]
+
+[dependencies.nx]
+git = "https://github.com/rusty-horizon/libnx"
+branch = "twili-std-fix"
+features = [ "twili" ]
+
+[dependencies.sdl2]
+git = "https://github.com/rusty-horizon/switch-sdl2-sys"
+branch = "master"
+features = []

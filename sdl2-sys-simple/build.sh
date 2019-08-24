@@ -8,7 +8,7 @@
 output_type="nro"
 
 # * NACP attributes (optional, NRO only) -> NRO name, author and version (try using the same ones that are in Cargo.toml)
-nacp_name="Rust - Hello world"
+nacp_name="Rust - SDL2 simple"
 nacp_author="Rusty Horizon"
 nacp_version="0.1.0"
 

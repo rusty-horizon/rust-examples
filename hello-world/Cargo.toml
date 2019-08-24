@@ -5,5 +5,5 @@ authors = ["XorTroll"]
 
 [dependencies.nx]
 git = "https://github.com/rusty-horizon/libnx"
-branch = "master"
-features = [ "twili" ]
+branch = "twili-std-fix"
+features = []

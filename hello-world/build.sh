@@ -31,7 +31,7 @@ target=aarch64-horizon-elf
 CARGO_INCREMENTAL=0 RUST_TARGET_PATH=$PWD RUST_BACKTRACE=1 xargo build --release --target $target
 
 # Locate ELF output file
-for elf in $PWD/target/$target/release/*.elf; do
+for elf in "$PWD/target/$target/release"/*.elf; do
     outelf=$elf
     break 1
 done
@@ -60,32 +60,25 @@ if [ -z "$icon" ]; then
     icon=/opt/devkitpro/libnx/default_icon.jpg
 fi
 
-if [ "$output_type" == "elf" ]; then
-
+if [ "$output_type" = "elf" ]; then
     # If just plain ELF, copy output one and that's it
     newelf=$PWD/$outname
-    cp -r $elf $newelf
-
-elif [ "$output_type" == "nro" ]; then
-
+    cp -r "$elf" "$newelf"
+elif [ "$output_type" = "nro" ]; then
     outnro="$PWD/$outname.nro"
 
     # Generate NACP
     outnacp="$PWD/target/$target/release/$outname.nacp"
-    nacptoolcmd="/opt/devkitpro/tools/bin/nacptool --create '$nacp_name' '$nacp_author' '$nacp_version' '$outnacp'"
-    eval $nacptoolcmd
+    /opt/devkitpro/tools/bin/nacptool --create "$nacp_name" "$nacp_author" "$nacp_version" "$outnacp"
 
-    # Command for NRO generation
-    elf2nrocmd="/opt/devkitpro/tools/bin/elf2nro '$elf' '$outnro' --nacp='$outnacp' --icon='$icon'"
-    if [ ! -z "$romfs_dir" ]; then
-        elf2nrocmd+=" --romfsdir='$PWD/$romfs_dir'"
+    # Generate NRO
+    if [ -n "$romfs_dir" ]; then
+        romfsdir="--romfsdir=$PWD/$romfs_dir"
     fi
-    eval $elf2nrocmd
-    
+    /opt/devkitpro/tools/bin/elf2nro "$elf" "$outnro" --nacp="$outnacp" --icon="$icon" "$romfsdir"
+
     echo "Generated NRO: $outnro"
-
-elif [ "$output_type" == "nso" ]; then
-
+elif [ "$output_type" = "nso" ]; then
     outnso="$PWD/$outname".nso
 
     # Command for NSO generation

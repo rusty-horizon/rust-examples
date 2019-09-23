@@ -6,7 +6,7 @@
   "target-c-int-width": "32",
   "target-endian": "little",
   "target-pointer-width": "64",
-  "os": "horizon-os",
+  "os": "horizon-nx",
   "arch": "aarch64",
   "panic-strategy": "unwind",
   "abi-blacklist": [
@@ -39,7 +39,7 @@
       "-nostartfiles",
       "-L/opt/devkitpro/portlibs/switch/lib",
       "-L/opt/devkitpro/libnx/lib",
-      "-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/8.2.0/pic",
+      "-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/8.3.0/pic",
       "-L/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic"
     ]
   },

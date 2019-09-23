@@ -1,11 +1,17 @@
 extern crate nx;
-use nx::console;
 
 fn main() {
-    let console = console::Handle::new().unwrap();
+    
+    nx::console::initialize();
 
-    println!("Hello rusty world!");
-    console.flush(); // Like in libnx, flush/update after console write
+    println!("Hello world!");
 
-    std::thread::sleep(std::time::Duration::from_millis(5000));
+    // Get version and print it
+    let ver = nx::os::get_version().unwrap();
+    println!("System version: {}", ver);
+
+    nx::console::flush();
+
+    loop {
+    }
 }

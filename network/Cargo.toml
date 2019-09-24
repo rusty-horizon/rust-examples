@@ -1,0 +1,9 @@
+[package]
+name = "hello_world"
+version = "0.0.1"
+authors = ["XorTroll"]
+
+[dependencies.nx]
+git = "https://github.com/rusty-horizon/libnx"
+branch = "master"
+features = [ "twili" ]
